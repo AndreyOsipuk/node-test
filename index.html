@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Socket.IO</title>
+  <style>
+  </style>
+</head>
+
+<body>
+  <pre id="top">Loading...</pre>
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    var socket = io();
+   
+
+    document.addEventListener("DOMContentLoaded", () => {
+      console.log('ready')
+      socket.emit('top');
+    });
+
+    socket.on('top', function (msg) {
+      const top = document.getElementById('top');
+      top.innerText = msg;
+    });
+  </script>
+</body>
+
+</html>
